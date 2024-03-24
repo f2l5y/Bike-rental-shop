@@ -1,0 +1,8 @@
+  delete entries but limit the deletion in case the same entry is present multiple times.                                                                                                                   
+                                                                                                                                  
+  PSQL --> DELETE FROM table WHERE ctid IN (SELECT ctid FROM table WHERE conditions LIMIT 1);                                                
+                                                                                                                                     
+  in the case above, the deletion will be limited to one.                                                                           
+                                                                                                                                    
+  ctid - represents the physical location of a tuple (row) within its tableìs data file.                                            
+                                                                                            
