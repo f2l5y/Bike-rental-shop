@@ -1,8 +1,7 @@
-  delete entries but limit the deletion in case the same entry is present multiple times.                                                                                                                   
-                                                                                                                                  
-  PSQL --> DELETE FROM table WHERE ctid IN (SELECT ctid FROM table WHERE conditions LIMIT 1);                                                
-                                                                                                                                     
-  in the case above, the deletion will be limited to one.                                                                           
-                                                                                                                                    
+1) Delete entries but limit the deletion in case the same entry is present multiple times.  
+
+    PSQL --> DELETE FROM table WHERE ctid IN (SELECT ctid FROM table WHERE conditions LIMIT 1);                                               
+  in this case above, the deletion will be limited to one.
   ctid - represents the physical location of a tuple (row) within its tableìs data file.                                            
-                                                                                            
+2) Create a foreign key while creating a table
+   PSQL --> CREATE TABLE table_name(column_1 SERIAL PRIMARY KEY, column_2 INT, FOREIGN KEY(column_2) REFERENCES     another_table(another_column))
